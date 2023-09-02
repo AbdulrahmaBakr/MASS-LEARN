@@ -44,6 +44,14 @@ function validateInputs() {
   localStorage.setItem('passwordValue', passwordValue);
   localStorage.setItem('password2Value', password2Value);
 
+  if(usernameValue != ''&&emailValue != ''&&passwordValue != ''&&password2Value != ''&&isValidEmail(emailValue)&&passwordValue.length >= 8 && password2Value === passwordValue){
+    localStorage.setItem('username', usernameValue);
+    localStorage.setItem('emailValue', emailValue);
+    localStorage.setItem('passwordValue', passwordValue);
+    localStorage.setItem('password2Value', password2Value);
+    window.location.href = '../course-details.html';
+  }
+ 
   if (usernameValue === '') {
     setError(username, 'Username is required');
   } else {
@@ -60,7 +68,7 @@ function validateInputs() {
 
   if (passwordValue === '') {
     setError(password, 'Password is required');
-  } else if (passwordValue.length < 8) {
+  } else if (passwordValue.length <= 8) {
     setError(password, 'Password must be at least 8 character.');
   } else {
     setSuccess(password);
@@ -72,7 +80,7 @@ function validateInputs() {
     setError(password2, "Passwords doesn't match");
   } else {
     setSuccess(password2);
-    window.location.href = '../course-details.html';
+   
   }
 }
 
