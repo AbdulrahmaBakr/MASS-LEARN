@@ -39,10 +39,7 @@ function validateInputs() {
   const passwordValue = password.value.trim();
   const password2Value = password2.value.trim();
   // set Items to localstorage
-  localStorage.setItem('username', usernameValue);
-  localStorage.setItem('emailValue', emailValue);
-  localStorage.setItem('passwordValue', passwordValue);
-  localStorage.setItem('password2Value', password2Value);
+   
 
   if(usernameValue != ''&&emailValue != ''&&passwordValue != ''&&password2Value != ''&&isValidEmail(emailValue)&&passwordValue.length >= 8 && password2Value === passwordValue){
     localStorage.setItem('username', usernameValue);
